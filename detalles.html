@@ -51,15 +51,6 @@
 
         #player-overlay { display: none; position: fixed; inset: 0; background: #000; z-index: 5000; }
         .video-js { width: 100% !important; height: 100% !important; }
-        
-        #ad-counter-box { 
-            position: absolute; bottom: 100px; left: 20px; 
-            background: rgba(0,0,0,0.8); padding: 10px 18px; 
-            border-radius: 8px; font-size: 14px; z-index: 6000; 
-            color: white; font-weight: bold; border-left: 5px solid var(--primary);
-            display: none; backdrop-filter: blur(5px);
-        }
-        #ad-counter-box span { color: var(--primary); font-size: 16px; margin-left: 5px; }
 
         .menu { position: fixed; bottom: 0; width: 100%; background: rgba(15,15,15,0.98); backdrop-filter: blur(10px); display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #222; z-index: 100; }
         .menu-item { color: #888; text-decoration: none; font-size: 11px; text-align: center; display: flex; flex-direction: column; align-items: center; background: none; border: none; cursor: pointer; width: 33.3%; }
@@ -87,8 +78,6 @@
     <h1 id="p-title">Cargando...</h1>
     <button class="btn-play" onclick="play()"><i class="fas fa-play"></i> REPRODUCIR AHORA</button>
 </div>
-
-<div id="ad-counter-box">La película comienza en: <span id="ad-timer">30</span>s</div>
 
 <div class="info-box">
     <div class="row"><span class="label">Code:</span><span class="value" id="p-code">---</span></div>
@@ -144,26 +133,11 @@
         if(!peli || !peli.video) return alert("Video no disponible");
         
         document.getElementById('player-overlay').style.display = 'block';
-        document.getElementById('ad-counter-box').style.display = 'block';
 
-        let timeLeft = 30;
-        const timer = setInterval(() => {
-            timeLeft--;
-            document.getElementById('ad-timer').innerText = timeLeft;
-            if(timeLeft <= 0) clearInterval(timer);
-        }, 1000);
-
-        player.src({ src: "https://appcine.b-cdn.net/publcidad/Sin%20t%C3%ADtulo.mp4", type: 'video/mp4' });
-        player.controls(false);
+        // Carga y reproduce directamente la película real de la base de datos
+        player.src({ src: peli.video, type: 'video/mp4' });
+        player.controls(true);
         player.play();
-
-        player.one('ended', function() {
-            clearInterval(timer);
-            document.getElementById('ad-counter-box').style.display = 'none';
-            player.src({ src: peli.video, type: 'video/mp4' });
-            player.controls(true);
-            player.play();
-        });
     }
 
     function closePlayer() {
