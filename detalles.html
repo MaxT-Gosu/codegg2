@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles - JavGG</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+
+    <style>
+        :root { --primary: #E50914; --bg: #0b111e; --text-orange: #f2a950; --text-label: #8da2bb; }
+        body { margin: 0; background: var(--bg); font-family: 'Roboto', sans-serif; color: #fff; padding-bottom: 100px; }
+        
+        .hero { position: relative; width: 100%; height: 45vh; background: #000; overflow: hidden; }
+        #hero-bg { width: 100%; height: 100%; background-size: cover; background-position: center top; opacity: 0; transition: opacity 0.5s ease-in-out; }
+        .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--bg) 0%, transparent 60%); }
+
+        .skeleton {
+            background: #1a1a1a;
+            background-image: linear-gradient(90deg, #1a1a1a 0px, #333 40px, #1a1a1a 80px);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite linear;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
+        }
+
+        @keyframes skeleton-loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+        .header-content { padding: 0 20px; margin-top: -60px; position: relative; z-index: 10; text-align: left; }
+        .badge { background: var(--primary); padding: 3px 8px; border-radius: 3px; font-weight: 900; font-size: 12px; margin-bottom: 8px; display: inline-block; }
+        h1 { font-size: 24px; margin: 0 0 15px 0; line-height: 1.2; text-shadow: 0 2px 15px rgba(0,0,0,0.9); }
+        
+        .btn-play { background: #fff; color: #000; border: none; width: 100%; padding: 14px; border-radius: 6px; font-weight: 900; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 25px; }
+
+        /* DISEÑO DE ACUERDO A LA IMAGEN */
+        .info-box { padding: 0 20px; display: flex; flex-direction: column; gap: 16px; }
+        .row { display: flex; flex-direction: row; align-items: flex-start; font-size: 16px; line-height: 1.5; }
+        .label { color: var(--text-label); font-weight: 700; width: 90px; flex-shrink: 0; }
+        .value { color: #fff; font-weight: 400; }
+        .value.highlight { color: var(--text-orange); font-weight: 700; }
+
+        #modal-busqueda { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 3000; padding: 20px; backdrop-filter: blur(15px); overflow-y: auto; }
+        .search-box-modal { background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; padding: 15px; border: 1px solid var(--primary); margin: 40px 0 20px 0; }
+        .search-box-modal input { background: transparent; border: none; color: #fff; width: 100%; outline: none; font-size: 18px; }
+        .close-search { position: absolute; top: 15px; right: 20px; font-size: 30px; color: #fff; cursor: pointer; border: none; background: none; }
+        
+        #resultados-busqueda { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+        .res-item { background: #111; border-radius: 5px; overflow: hidden; cursor: pointer; aspect-ratio: 2/3; position: relative; border: 1px solid #222; }
+        .res-item img { width: 100%; height: 100%; object-fit: cover; }
+        .res-id { position: absolute; bottom: 0; width: 100%; background: rgba(229, 9, 20, 0.8); color: #fff; font-size: 10px; text-align: center; font-weight: bold; padding: 2px 0; }
+
+        #player-overlay { display: none; position: fixed; inset: 0; background: #000; z-index: 5000; }
+        .video-js { width: 100% !important; height: 100% !important; }
+        
+        #ad-counter-box { 
+            position: absolute; bottom: 100px; left: 20px; 
+            background: rgba(0,0,0,0.8); padding: 10px 18px; 
+            border-radius: 8px; font-size: 14px; z-index: 6000; 
+            color: white; font-weight: bold; border-left: 5px solid var(--primary);
+            display: none; backdrop-filter: blur(5px);
+        }
+        #ad-counter-box span { color: var(--primary); font-size: 16px; margin-left: 5px; }
+
+        .menu { position: fixed; bottom: 0; width: 100%; background: rgba(15,15,15,0.98); backdrop-filter: blur(10px); display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #222; z-index: 100; }
+        .menu-item { color: #888; text-decoration: none; font-size: 11px; text-align: center; display: flex; flex-direction: column; align-items: center; background: none; border: none; cursor: pointer; width: 33.3%; }
+        .menu-item i { font-size: 20px; margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+
+<div id="modal-busqueda">
+    <button class="close-search" onclick="cerrarBuscador()">&times;</button>
+    <div class="search-box-modal">
+        <i class="fas fa-search" style="margin-right: 15px; color: #888;"></i>
+        <input type="text" id="input-buscador" placeholder="Buscar ID...">
+    </div>
+    <div id="resultados-busqueda"></div>
+</div>
+
+<div class="hero">
+    <div id="hero-skeleton" class="skeleton"></div>
+    <div id="hero-bg"></div>
+</div>
+
+<div class="header-content">
+    <span class="badge" id="p-id">---</span>
+    <h1 id="p-title">Cargando...</h1>
+    <button class="btn-play" onclick="play()"><i class="fas fa-play"></i> REPRODUCIR AHORA</button>
+</div>
+
+<div id="ad-counter-box">La película comienza en: <span id="ad-timer">30</span>s</div>
+
+<div class="info-box">
+    <div class="row"><span class="label">Code:</span><span class="value" id="p-code">---</span></div>
+    <div class="row"><span class="label">Date:</span><span class="value" id="p-fecha">---</span></div>
+    <div class="row"><span class="label">Time:</span><span class="value" id="p-time">02:00:00</span></div>
+    <div class="row"><span class="label">Pornstars:</span><span class="value highlight" id="p-actriz">---</span></div>
+    <div class="row"><span class="label">Studio:</span><span class="value highlight" id="p-studio">---</span></div>
+    <div class="row"><span class="label">Tags:</span><span class="value highlight" id="p-tags">---</span></div>
+</div>
+
+<nav class="menu">
+    <a href="index.html" class="menu-item"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="uncensored.html" class="menu-item"><i class="fas fa-bolt"></i><span>Uncensored</span></a>
+    <button class="menu-item" onclick="abrirBuscador()"><i class="fas fa-search"></i><span>Buscar</span></button>
+</nav>
+
+<div id="player-overlay">
+    <video id="v-player" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" playsinline></video>
+</div>
+
+<script src="code.js"></script>
+<script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+
+<script>
+    // LÓGICA DE CARGA DINÁMICA
+    const peliId = localStorage.getItem('peli_id');
+    const peli = baseDeDatos.find(p => p.id === peliId);
+
+    if (peli) {
+        // Rellenar visuales
+        document.getElementById('p-title').innerText = peli.titulo;
+        document.getElementById('p-id').innerText = peli.id;
+        document.getElementById('p-code').innerText = peli.id; // Usa el ID de la BD como Code
+        document.getElementById('p-studio').innerText = peli.estudio || "Desconocido";
+        document.getElementById('p-fecha').innerText = peli.fecha || "No disponible";
+        document.getElementById('p-actriz').innerText = peli.actriz || "Desconocida";
+        document.getElementById('p-tags').innerText = peli.tags || "Ninguno";
+
+        // Carga de imagen de fondo
+        const heroBg = document.getElementById('hero-bg');
+        const img = new Image();
+        img.src = peli.bg || peli.poster;
+        img.onload = () => {
+            document.getElementById('hero-skeleton').style.display = 'none';
+            heroBg.style.backgroundImage = `url('${img.src}')`;
+            heroBg.style.opacity = '1';
+        };
+    }
+
+    var player = videojs('v-player', { fluid: true });
+
+    function play() {
+        if(!peli || !peli.video) return alert("Video no disponible");
+        
+        document.getElementById('player-overlay').style.display = 'block';
+        document.getElementById('ad-counter-box').style.display = 'block';
+
+        let timeLeft = 30;
+        const timer = setInterval(() => {
+            timeLeft--;
+            document.getElementById('ad-timer').innerText = timeLeft;
+            if(timeLeft <= 0) clearInterval(timer);
+        }, 1000);
+
+        player.src({ src: "https://appcine.b-cdn.net/publcidad/Sin%20t%C3%ADtulo.mp4", type: 'video/mp4' });
+        player.controls(false);
+        player.play();
+
+        player.one('ended', function() {
+            clearInterval(timer);
+            document.getElementById('ad-counter-box').style.display = 'none';
+            player.src({ src: peli.video, type: 'video/mp4' });
+            player.controls(true);
+            player.play();
+        });
+    }
+
+    function closePlayer() {
+        player.pause();
+        document.getElementById('player-overlay').style.display = 'none';
+    }
+
+    function abrirBuscador() { document.getElementById('modal-busqueda').style.display = 'block'; }
+    function cerrarBuscador() { document.getElementById('modal-busqueda').style.display = 'none'; }
+    
+    document.getElementById('input-buscador').addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        const resDiv = document.getElementById('resultados-busqueda');
+        resDiv.innerHTML = "";
+        if(query.length < 2) return;
+
+        baseDeDatos.filter(p => p.id.toLowerCase().includes(query)).forEach(p => {
+            const d = document.createElement('div');
+            d.className = 'res-item';
+            d.onclick = () => { localStorage.setItem('peli_id', p.id); location.reload(); };
+            d.innerHTML = `<img src="${p.poster}"><div class="res-id">${p.id}</div>`;
+            resDiv.appendChild(d);
+        });
+    });
+</script>
+</body>
+</html>
