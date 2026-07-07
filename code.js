@@ -746,7 +746,7 @@ const baseDeDatos = [
         estudio: "Glory Quest",
 		actriz: "Miki Sunohara,Yuna Nagisa",
         fecha: "Apr. 07, 2026",
-        tags: "Reducing Mosaic"
+        tags: "Reducing Mosaic,ts"
     },
 	{ 
         id: "FTHTD-199", 
@@ -768,7 +768,7 @@ const baseDeDatos = [
         estudio: "Mercury",
 		actriz: "Miyuki Shirahashi",
         fecha: "Mar. 27, 2026",
-        tags: "Reducing Mosaic"
+        tags: "Reducing Mosaic,ts"
     },
 	{ 
         id: "EBWH-324", 
@@ -966,7 +966,7 @@ const baseDeDatos = [
         estudio: "Mousozoku",
 		actriz: "Kuroro Tsukino",
         fecha: "May. 05, 2026",
-        tags: "Reducing Mosaic"
+        tags: "Reducing Mosaic,ts"
     },
 	{ 
         id: "EBWH-322", 
@@ -1021,7 +1021,7 @@ const baseDeDatos = [
         estudio: "Shemale A La Carte ",
 		actriz: "Juri Himeno,Shia Himeoka",
         fecha: "Mar. 24, 2026",
-        tags: "Reducing Mosaic,trans"
+        tags: "Reducing Mosaic,ts"
     },
 	{ 
         id: "SW-134", 
@@ -1054,7 +1054,7 @@ const baseDeDatos = [
         estudio: "Mousozoku",
 		actriz: "Hime Hanamiya",
         fecha: " Apr. 14, 2026",
-        tags: "Reducing Mosaic,Trans"
+        tags: "Reducing Mosaic,Ts"
     },
 	{ 
         id: "JUR-732", 
@@ -1208,6 +1208,6 @@ const baseDeDatos = [
         estudio: "Sanwa Shuppan",
 		actriz: "Oryou",
         fecha: "Jun. 12, 2026",
-        tags: "Reducing Mosaic,trans"
+        tags: "Reducing Mosaic,Ts"
     },
 ];
