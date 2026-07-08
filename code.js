@@ -1210,4 +1210,15 @@ const baseDeDatos = [
         fecha: "Jun. 12, 2026",
         tags: "Reducing Mosaic,Ts"
     },
+	{ 
+        id: "SORA-637-RM", 
+        titulo: "Personality Manipulation Brainwashing Hypnosis", 
+        poster: "https://i.ibb.co/275sC8xQ/0fda1f55eb.webp", 
+        bg: "https://i.ibb.co/JRtj8t2G/vlcsnap-2026-07-08-10h28m14s636.png", 
+        video: "https://appcine.b-cdn.net/Codegg/Sora-637.mp4", 
+        estudio: "Yama To Sora",
+		actriz: "Sunao Kokonoi",
+        fecha: "Jun. 02, 2026",
+        tags: "Reducing Mosaic"
+    },
 ];
