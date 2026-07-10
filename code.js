@@ -1232,4 +1232,15 @@ const baseDeDatos = [
         fecha: "May. 24, 2026",
         tags: "Reducing Mosaic"
     },
+	{ 
+        id: "BOKD-317-RM", 
+        titulo: "I May Look Like This, But I Have A Penis.", 
+        poster: "https://i.ibb.co/pBjWS1Jr/318f778c1a.webp", 
+        bg: "https://i.ibb.co/1tXchY9J/vlcsnap-2026-07-10-10h17m57s610.png", 
+        video: "https://appcine.b-cdn.net/Codegg/Bokd-317.mp4", 
+        estudio: "K M Produce",
+		actriz: "Minato Ruka",
+        fecha: "Jun. 23, 2026",
+        tags: "Reducing Mosaic,ts"
+    },
 ];
