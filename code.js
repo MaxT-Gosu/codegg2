@@ -1243,4 +1243,15 @@ const baseDeDatos = [
         fecha: "Jun. 23, 2026",
         tags: "Reducing Mosaic,ts"
     },
+	{ 
+        id: "JUR-783-RM", 
+        titulo: "This Might Be The Last Erection Of My Life", 
+        poster: "https://i.ibb.co/G3szKpx8/93ed08f612.webp", 
+        bg: "https://i.ibb.co/MD6Z265D/vlcsnap-2026-07-11-07h37m19s630.png", 
+        video: "https://appcine.b-cdn.net/Codegg/Jur-783.mp4", 
+        estudio: "Madonna",
+		actriz: "Rei Kimura",
+        fecha: "Jun. 23, 2026",
+        tags: "Reducing Mosaic"
+    },
 ];
