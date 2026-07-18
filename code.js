@@ -1276,4 +1276,15 @@ const baseDeDatos = [
         fecha: "Jul. 09, 2026",
         tags: "Reducing Mosaic"
     },
+	{ 
+        id: "JUR-708", 
+        titulo: "Adulterous Sex Session In The Middle Of Summer", 
+        poster: "https://cdn001.imggle.net/webp/poster/05192026/1275ed4899.webp", 
+        bg: "https://pics.dmm.co.jp/digital/video/jur00708/jur00708jp-5.jpg", 
+        video: "https://appcine.b-cdn.net/Codegg/Jur-708.mp4", 
+        estudio: "Madonna",
+		actriz: "Ayumi Miura",
+        fecha: "May. 26, 2026",
+        tags: "Reducing Mosaic"
+    },
 ];
