@@ -1287,4 +1287,26 @@ const baseDeDatos = [
         fecha: "May. 26, 2026",
         tags: "Reducing Mosaic"
     },
+	{ 
+        id: "MVSD-696", 
+        titulo: "No Man Could Possibly Refuse! The Exhibitionist Woman", 
+        poster: "https://i.ibb.co/MQNMc5y/480c00ac81.webp", 
+        bg: "https://i.ibb.co/QLDjWck/vlcsnap-2026-07-22-09h51m08s549.png", 
+        video: "https://appcine.b-cdn.net/Codegg/Mvsd-696.mp4", 
+        estudio: "M's Video Group",
+		actriz: "Nao Satsuki",
+        fecha: "Jul. 21, 2026",
+        tags: "Reducing Mosaic"
+    },
+	{ 
+        id: "IPZZ-876", 
+        titulo: "A Beautiful, Stunningly Sexy Woman With An Amazing", 
+        poster: "https://i.ibb.co/MQNMc5y/480c00ac81.webp", 
+        bg: "https://i.ibb.co/xSwLQm9W/add0f16a7e.webp", 
+        video: "https://appcine.b-cdn.net/Codegg/Ipzz-876.mp4", 
+        estudio: "Idea Pocket",
+		actriz: "Nene Misumi",
+        fecha: "Jul. 14, 2026",
+        tags: "Reducing Mosaic"
+    },
 ];
