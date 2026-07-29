@@ -1301,12 +1301,23 @@ const baseDeDatos = [
 	{ 
         id: "IPZZ-876", 
         titulo: "A Beautiful, Stunningly Sexy Woman With An Amazing", 
-        poster: "https://i.ibb.co/MQNMc5y/480c00ac81.webp", 
+        poster: "https://i.ibb.co/xSwLQm9W/add0f16a7e.webp", 
         bg: "https://i.ibb.co/xSwLQm9W/add0f16a7e.webp", 
         video: "https://appcine.b-cdn.net/Codegg/Ipzz-876.mp4", 
         estudio: "Idea Pocket",
 		actriz: "Nene Misumi",
         fecha: "Jul. 14, 2026",
+        tags: "Reducing Mosaic"
+    },
+	{ 
+        id: "JUR-754-RM", 
+        titulo: "Just For A Moment, Please Let Me Put It In!!", 
+        poster: "https://i.ibb.co/1G1FPFGf/09e5394afd.webp", 
+        bg: "https://i.ibb.co/tM5c8f27/vlcsnap-2026-07-29-14h24m36s427.png", 
+        video: "https://appcine.b-cdn.net/Codegg/Jur-754.mp4", 
+        estudio: "Madonna",
+		actriz: "Tina Nanami",
+        fecha: "May. 26, 2026",
         tags: "Reducing Mosaic"
     },
 ];
