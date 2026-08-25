@@ -1320,4 +1320,15 @@ const baseDeDatos = [
         fecha: "May. 26, 2026",
         tags: "Reducing Mosaic"
     },
+	{ 
+        id: "DSOD-048-RM", 
+        titulo: "Slender, Busty Beauty Has Her Sanity Shattered", 
+        poster: "https://i.ibb.co/H8Y34WH/fb3625d005.webp", 
+        bg: "https://i.ibb.co/j9r8c78v/vlcsnap-2026-08-25-15h04m21s095.png", 
+        video: "https://appcine.b-cdn.net/Codegg/Dsod-048.mp4", 
+        estudio: " Das!!",
+		actriz: "Fujisaki Soa",
+        fecha: "Jul. 28, 2026",
+        tags: "Reducing Mosaic"
+    },
 ];
