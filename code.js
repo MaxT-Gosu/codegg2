@@ -1326,9 +1326,20 @@ const baseDeDatos = [
         poster: "https://i.ibb.co/H8Y34WH/fb3625d005.webp", 
         bg: "https://i.ibb.co/j9r8c78v/vlcsnap-2026-08-25-15h04m21s095.png", 
         video: "https://appcine.b-cdn.net/Codegg/Dsod-048.mp4", 
-        estudio: " Das!!",
+        estudio: "Das!!",
 		actriz: "Fujisaki Soa",
         fecha: "Jul. 28, 2026",
+        tags: "Reducing Mosaic"
+    },
+	{ 
+        id: "ABF-364-RM", 
+        titulo: "Weekday Female Teacher, Weekend Sex Toy.", 
+        poster: "https://i.ibb.co/rKmYqyJt/7fde5b67eb.webp", 
+        bg: "https://i.ibb.co/Nw04kG5/vlcsnap-2026-09-05-07h25m46s644.png", 
+        video: "https://appcine.b-cdn.net/Codegg/Abf-364.mp4", 
+        estudio: "Prestige",
+		actriz: "Airi Suzumura",
+        fecha: "Jul. 17, 2026",
         tags: "Reducing Mosaic"
     },
 ];
